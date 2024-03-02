@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-export const BlogPage: FC = () => {
+export const BlogView: FC = () => {
 	return (
 		<div>
 			Blog page

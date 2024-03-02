@@ -1,3 +1,3 @@
-import { PostPage } from '@/pages';
+import { PostView } from '@/views';
 
-export default PostPage;
+export default PostView;

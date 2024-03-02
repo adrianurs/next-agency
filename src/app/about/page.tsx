@@ -1,3 +1,3 @@
-import { AboutPage } from '@/pages';
+import { AboutView } from '@/views';
 
-export default AboutPage;
+export default AboutView;

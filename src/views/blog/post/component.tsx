@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-export const PostPage: FC = () => {
+export const PostView: FC = () => {
 	return (
 		<div>
 			Post page

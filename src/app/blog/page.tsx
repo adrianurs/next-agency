@@ -1,3 +1,3 @@
-import { BlogPage } from '@/pages';
+import { BlogView } from '@/views';
 
-export default BlogPage;
+export default BlogView;
