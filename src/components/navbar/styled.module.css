@@ -1,0 +1,7 @@
+.nav_container {
+	@apply flex justify-between items-center;
+}
+
+.nav_wrapper {
+	@apply flex items-center gap-3;
+} 

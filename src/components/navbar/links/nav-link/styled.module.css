@@ -1,0 +1,8 @@
+.nav_link_wrapper {
+	@apply transition-all min-w-[100px] p-2.5 rounded-3xl font-medium text-center;
+}
+
+.active {
+	background-color: var(--primary-darker);
+	color: var(--secondary);
+}

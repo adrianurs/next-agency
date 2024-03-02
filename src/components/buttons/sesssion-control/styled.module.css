@@ -1,0 +1,9 @@
+.session_control_btn {
+	background-color: var(--primary-darker);
+	color: var(--secondary);
+	@apply min-w-[100px] p-2.5 text-center font-semibold transition-all;
+}
+
+.session_control_btn:hover {
+	background-color: var(--primary-dark);
+}
