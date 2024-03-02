@@ -3,5 +3,5 @@
 }
 
 .nav_wrapper {
-	@apply flex items-center gap-3;
+	@apply flex items-center gap-3 sm:hidden;
 } 

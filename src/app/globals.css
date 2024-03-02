@@ -44,6 +44,6 @@ body {
 
 @layer components {
   .main-container {
-    @apply h-screen px-12 w-4/5 flex flex-col justify-between;
+    @apply h-screen px-12 w-4/5 flex flex-col justify-between sm:px-3;
   }
 }
