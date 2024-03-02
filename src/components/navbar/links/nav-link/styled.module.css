@@ -1,5 +1,5 @@
 .nav_link_wrapper {
-	@apply transition-all min-w-[100px] p-2.5 rounded-3xl font-medium text-center;
+	@apply transition-all py-2.5 px-5 rounded-3xl font-medium text-center;
 }
 
 .active {

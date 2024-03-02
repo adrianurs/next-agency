@@ -1,5 +1,5 @@
 .nav_container {
-	@apply flex justify-between items-center;
+	@apply flex justify-between items-center py-3;
 }
 
 .nav_wrapper {
