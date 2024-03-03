@@ -1,0 +1,27 @@
+.image_container {
+	@apply relative h-full w-[300px] hidden sm:flex;
+}
+
+.details_container {
+	@apply flex flex-col items-start gap-7;
+}
+
+.title {
+	@apply text-4xl font-extrabold;
+}
+
+.author_section {
+	@apply grid grid-cols-4 sm:grid-cols-10 sm:w-80 h-9 items-start gap-3;
+}
+
+.avatar {
+	@apply col-span-1 sm:col-span-2  rounded-[50%] object-contain;
+}
+
+.other_details {
+	@apply col-span-3 sm:col-span-4 h-full flex flex-col items-start justify-start;
+}
+
+.label {
+	@apply text-zinc-600 text-sm;
+}
