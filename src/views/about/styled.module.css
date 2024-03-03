@@ -1,13 +1,13 @@
 .grid_container {
-	@apply grid grid-cols-12 gap-10 h-full;
+	@apply grid gap-10 h-full grid-cols-1 md:grid-cols-12;
 }
 
 .items_container {
-	@apply col-span-5 md:col-span-12 flex flex-col justify-center items-start gap-5;
+	@apply md:col-span-5 col-span-1 flex flex-col justify-center items-start gap-5;
 }
 
 .hero_container {
-	@apply col-span-7 md:col-span-12 flex justify-center items-center;
+	@apply md:col-span-7 col-span-1 flex justify-center items-center;
 }
 
 .page_name {

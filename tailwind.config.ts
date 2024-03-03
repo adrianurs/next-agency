@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 const config: Config = {
   content: [
     './src/views/**/*.{js,ts,jsx,tsx,mdx}',
@@ -19,11 +21,7 @@ const config: Config = {
       }
     },
     screens: {
-      sm: { max: '767px' },
-      md: { max: '1023px' },
-      lg: { max: '1279px' },
-      xl: { max: '1535px' },
-      '2xl': { min: '1536px' }
+      ...defaultTheme.screens
     }
   },
   plugins: []

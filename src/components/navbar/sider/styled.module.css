@@ -1,6 +1,6 @@
 .menu_button {
 	color: var(--primary-darker);
-	@apply w-8 h-8 hover:cursor-pointer hidden sm:flex;
+	@apply w-8 h-8 hover:cursor-pointer md:hidden flex;
 }
 
 .close_menu_button {
@@ -8,6 +8,6 @@
 } 
 
 .sider_container {
-	@apply fixed top-0 right-0 bg-slate-950 bg-opacity-90 backdrop-blur-sm ease-in-out duration-200 h-screen w-[300px] flex-col justify-center items-center gap-3 hidden sm:flex;
+	@apply fixed top-0 right-0 bg-slate-950 bg-opacity-90 backdrop-blur-sm ease-in-out duration-200 h-screen w-[300px] flex-col justify-center items-center gap-3 md:hidden flex;
 }
 

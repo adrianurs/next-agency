@@ -1,11 +1,11 @@
-import { Loader } from '@/components';
+import { Loader, ViewContainer } from '@/components';
 import { FC } from 'react';
 
 const Loading: FC = () => {
   return (
-    <div>
+    <ViewContainer>
       <Loader />
-    </div>
+    </ViewContainer>
   );
 };
 
