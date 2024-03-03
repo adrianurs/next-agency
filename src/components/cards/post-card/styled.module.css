@@ -1,0 +1,31 @@
+.container {
+	@apply max-w-[300px] h-[400px] flex flex-col gap-3;
+}
+
+.top {
+	@apply h-[300px] grid grid-cols-12 gap-3;
+}
+
+.image_col {
+	@apply col-span-9 relative;
+}
+
+.date_col {
+	@apply col-span-3 m-auto;
+}
+
+.date {
+	@apply text-sm -rotate-90;
+}
+
+.title {
+	@apply text-base font-semibold;
+}
+
+.description {
+	@apply overflow-ellipsis overflow-hidden line-clamp-1;
+}
+
+.bottom {
+	@apply h-[100px] flex flex-col gap-1;
+}

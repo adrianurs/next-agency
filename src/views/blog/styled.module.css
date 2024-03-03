@@ -1,0 +1,8 @@
+.page_name {
+	color: var(--primary);
+	@apply text-xl font-bold;
+}
+
+.posts_container {
+	@apply flex h-full items-start justify-start mt-10 flex-wrap gap-12
+}
