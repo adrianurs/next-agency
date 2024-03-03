@@ -1,0 +1,10 @@
+.primary_button {
+	background-color: var(--primary);
+	color: white;
+	@apply min-w-36 py-2.5 text-sm rounded-md transition-all;
+}
+
+.primary_button:hover {
+	background-color: var(--primary-dark);
+	color: var(--secondary);
+}

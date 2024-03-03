@@ -1,1 +1,1 @@
-export { PostView } from './component';
+export { PostView } from './view';

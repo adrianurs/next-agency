@@ -1,3 +1,4 @@
-import LoaderJSON from './loader.json';
+import LoaderAnimation from './loader.json';
+import HeroAnimation from './hero.json';
 
-export { LoaderJSON };
+export { LoaderAnimation, HeroAnimation };

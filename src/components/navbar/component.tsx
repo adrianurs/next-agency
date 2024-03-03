@@ -1,13 +1,16 @@
 import { FC } from 'react';
 import { Links } from './links';
 import { Logo } from '@/components';
-import styles from './styled.module.css';
 import { Sider } from './sider';
+import styles from './styled.module.css';
+import Link from 'next/link';
 
 export const Navbar: FC = () => {
   return (
     <div className={styles.nav_container}>
-      <Logo />
+      <Link href='/'>
+        <Logo />
+      </Link>
       <div className={styles.nav_wrapper}>
         <Links />
       </div>

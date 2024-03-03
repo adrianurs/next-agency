@@ -1,0 +1,1 @@
+export { SessionControlButton } from './component';
