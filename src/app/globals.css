@@ -26,10 +26,9 @@
 }
 
 body {
+  height: 100vh;
   color: var(--primary-darker);
   background: var(--secondary);
-  display: flex;
-  justify-content: center;
 }
 
 @layer base {
@@ -44,6 +43,6 @@ body {
 
 @layer components {
   .main-container {
-    @apply h-screen px-12 w-4/5 flex flex-col justify-between sm:px-3 md:px-5;
+    @apply h-full w-full px-44 flex flex-col justify-between sm:px-1 md:px-16;
   }
 }
