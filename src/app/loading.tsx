@@ -1,11 +1,12 @@
+import { Loader } from '@/components';
 import { FC } from 'react';
 
 const Loading: FC = () => {
-	return (
-		<div>
-			Loading...
-		</div>
-	)
-}
+  return (
+    <div>
+      <Loader />
+    </div>
+  );
+};
 
 export default Loading;
