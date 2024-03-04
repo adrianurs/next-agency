@@ -1,9 +1,9 @@
 import { PostCard, ViewContainer } from '@/components';
+import { PostType, request } from '@/lib';
 import styles from './styled.module.css';
-import { getPosts } from '@/lib';
 
 export async function BlogView() {
-  const posts = await getPosts();
+  const posts = (await request.get<PostType[]>('/posts')).data;
 
   return (
     <ViewContainer>

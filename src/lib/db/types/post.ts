@@ -4,5 +4,5 @@ export type PostType = {
   description: string;
   image: string;
   author: string;
-  createdAt: Date;
+  createdAt: string;
 };

@@ -1,11 +1,11 @@
 import { ViewContainer } from '@/components';
 import styles from './styled.module.css';
 import Image from 'next/image';
-import { formatDate, getPost } from '@/lib';
+import { formatDate, request } from '@/lib';
 import { UserSection } from './user-section/component';
 
 export async function PostView({ params }: { params: { post: string } }) {
-  const post = await getPost(params.post);
+  const post = (await request.get(`/posts/${params.post}`)).data;
 
   return (
     <ViewContainer flex>

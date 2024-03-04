@@ -1,3 +1,3 @@
 export { connectToMongo } from './connect';
-export { getPost, getPosts, getUser } from './actions';
+export { Post, User } from './models';
 export { type PostType, type UserType } from './types';

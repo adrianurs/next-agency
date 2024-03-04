@@ -1,11 +1,12 @@
 import { UserSectionProps } from './types';
 import styles from './styled.module.css';
 import Image from 'next/image';
-import { getUser } from '@/lib';
 import { NoAvatarSrc } from '@/assets';
+import { UserType, request } from '@/lib';
 
 export async function UserSection({ publishedOn, authorId }: UserSectionProps) {
-  const author = await getUser(authorId);
+  const author = (await request.get<UserType>(`/users/${authorId}`)).data;
+
   return (
     <div className={styles.author_section}>
       <Image
