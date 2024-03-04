@@ -1,23 +1,25 @@
-'use client';
-import { FC, useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
 import { ViewContainer } from '@/components';
-import { IPost } from './types';
 import posts from './posts.json';
 import styles from './styled.module.css';
 import Image from 'next/image';
 import { NoAvatarSrc } from '@/assets';
+import { mockQuery } from '@/lib';
 
-export const PostView: FC = () => {
-  const params = useParams();
-  const [post, setPost] = useState<IPost>();
+async function getPost(postId: string) {
+  try {
+    const result = await mockQuery(
+      posts.find((el) => el._id === postId),
+      { delay: 2000 }
+    );
+    if (result.data) return result.data;
+    throw new Error('Post not found');
+  } catch (e) {
+    throw new Error((e as Error).message);
+  }
+}
 
-  useEffect(() => {
-    const postFound = posts.find((post) => post._id === params.post);
-    postFound && setPost(postFound);
-  }, [params.post]);
-
-  if (!post) return null;
+export async function PostView({ params }: { params: { post: string } }) {
+  const post = await getPost(params.post);
 
   return (
     <ViewContainer flex>
@@ -54,4 +56,4 @@ export const PostView: FC = () => {
       </div>
     </ViewContainer>
   );
-};
+}

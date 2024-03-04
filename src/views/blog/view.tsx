@@ -1,9 +1,16 @@
 import { PostCard, ViewContainer } from '@/components';
-import { FC } from 'react';
-import posts from './posts.json';
+import postsJSON from './posts.json';
 import styles from './styled.module.css';
+import { mockQuery } from '@/lib';
 
-export const BlogView: FC = () => {
+async function getPosts() {
+  const result = await mockQuery(postsJSON, { delay: 5000 });
+  return result.data;
+}
+
+export async function BlogView() {
+  const posts = await getPosts();
+
   return (
     <ViewContainer>
       <h5 className={styles.page_name}>Our blog</h5>
@@ -14,4 +21,4 @@ export const BlogView: FC = () => {
       </div>
     </ViewContainer>
   );
-};
+}

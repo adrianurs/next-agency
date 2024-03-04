@@ -1,5 +1,5 @@
 .image_container {
-	@apply relative h-full w-[300px] hidden sm:flex;
+	@apply relative h-full min-w-[300px] w-[300px] hidden sm:flex;
 }
 
 .details_container {
