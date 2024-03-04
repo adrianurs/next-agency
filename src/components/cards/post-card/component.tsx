@@ -2,8 +2,9 @@ import { PostCardFC } from './types';
 import styles from './styled.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import { formatDate } from '@/lib';
 
-export const PostCard: PostCardFC = ({ item: { _id, date, description, image, title } }) => {
+export const PostCard: PostCardFC = ({ item: { _id, createdAt, description, image, title } }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -18,7 +19,7 @@ export const PostCard: PostCardFC = ({ item: { _id, date, description, image, ti
           />
         </div>
         <div className={styles.date_col}>
-          <p className={styles.date}>{date}</p>
+          <p className={styles.date}>{formatDate(createdAt)}</p>
         </div>
       </div>
       <div className={styles.bottom}>

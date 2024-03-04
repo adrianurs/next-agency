@@ -1,12 +1,6 @@
 import { PostCard, ViewContainer } from '@/components';
-import postsJSON from './posts.json';
 import styles from './styled.module.css';
-import { mockQuery } from '@/lib';
-
-async function getPosts() {
-  const result = await mockQuery(postsJSON, { delay: 5000 });
-  return result.data;
-}
+import { getPosts } from '@/lib';
 
 export async function BlogView() {
   const posts = await getPosts();
