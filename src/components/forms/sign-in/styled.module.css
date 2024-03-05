@@ -1,0 +1,19 @@
+.form_wrapper {
+	@apply grid grid-cols-1 gap-2 w-full md:w-[50%] self-center;
+}
+
+.form_input {
+	@apply w-full col-span-1;
+}
+
+.action_container {
+	@apply col-span-1 flex justify-center;
+}
+
+.form_submit {
+	@apply w-full mt-3;
+}
+
+.link {
+	@apply underline w-max text-center;
+}

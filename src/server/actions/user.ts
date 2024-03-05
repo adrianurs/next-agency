@@ -10,7 +10,7 @@ export async function getUser(
 ): Promise<NextResponse<UserType | ErrorType>> {
   noStore();
   try {
-    connectToMongo();
+    await connectToMongo();
     const user = await User.findById<UserType>(params.user);
     if (user) return NextResponse.json(user);
     else return errorResponse('User not found.', 400);

@@ -7,7 +7,7 @@ import { isValidObjectId } from 'mongoose';
 
 export async function getPosts(): Promise<NextResponse<PostType[]>> {
   try {
-    connectToMongo();
+    await connectToMongo();
     return NextResponse.json(await Post.find<PostType>());
   } catch {
     throw new Error('@/server/actions/post.ts -> getPosts: failed to fetch posts.');
@@ -20,7 +20,7 @@ export async function getPost(
 ): Promise<NextResponse<PostType | ErrorType>> {
   noStore();
   try {
-    connectToMongo();
+    await connectToMongo();
 
     if (!isValidObjectId(params.post)) return errorResponse('Invalid post search.', 400);
 

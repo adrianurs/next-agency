@@ -1,5 +1,5 @@
 .page_name {
-	color: var(--primary);
+	color: var(--primary-darker);
 	@apply text-xl font-bold;
 }
 

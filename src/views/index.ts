@@ -4,3 +4,4 @@ export * from './contact';
 export * from './home';
 export * from './post';
 export * from './sign-in';
+export * from './sign-up';

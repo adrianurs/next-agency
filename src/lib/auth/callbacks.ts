@@ -7,9 +7,7 @@ export const callbacks: NextAuthConfig['callbacks'] = {
     try {
       if (account?.provider && Object.keys(providers_map).includes(account.provider)) {
         await connectToMongo();
-
         const dbUser = await User.findOne<UserType>({ email: user.email });
-
         if (!dbUser) {
           type KeyOfProfile = keyof typeof profile;
           type KeyOfProviders = keyof typeof providers_map;
@@ -30,6 +28,8 @@ export const callbacks: NextAuthConfig['callbacks'] = {
 
         return true;
       }
+
+      if (account?.provider && account.provider === 'credentials') return true;
 
       return false;
     } catch (e) {
