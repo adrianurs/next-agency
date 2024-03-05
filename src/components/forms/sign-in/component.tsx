@@ -1,23 +1,22 @@
 'use client';
 import Link from 'next/link';
-import { FormFC } from '../types';
+import { FormFC, FormState } from '../types';
 import { InputBase, InputPassword, PrimaryButton } from '@/components';
-import styles from './styled.module.css';
-import { SignInUser } from './types';
 import { useFormik } from 'formik';
 import { validationSchema, initialValues } from './form';
 import { useFormState } from 'react-dom';
+import styles from './styled.module.css';
 
-export const SignInForm: FormFC<SignInUser> = ({ action }) => {
-  const { dirty, errors, isValid, touched, values, handleChange, handleBlur, handleSubmit } =
-    useFormik({
-      validationSchema,
-      initialValues,
-      onSubmit: action
-    });
+export const SignInForm: FormFC = ({ action }) => {
+  const [formState, actionFormState] = useFormState<FormState, FormData>(action, {});
+  const { dirty, errors, isValid, touched, values, handleChange, handleBlur } = useFormik({
+    validationSchema,
+    initialValues,
+    onSubmit: () => {}
+  });
 
   return (
-    <form className={styles.form_wrapper} onSubmit={handleSubmit}>
+    <form className={styles.form_wrapper} action={actionFormState}>
       <InputBase
         name='username'
         placeholder='Username or email'
@@ -36,8 +35,13 @@ export const SignInForm: FormFC<SignInUser> = ({ action }) => {
         onBlur={handleBlur}
         error={touched.password && errors.password}
       />
+      {formState.error && <p className={styles.submission_error}>{formState.error}</p>}
       <div className={`${styles.action_container}`}>
-        <PrimaryButton disabled={!dirty && !isValid} className={`${styles.form_submit}`}>
+        <PrimaryButton
+          type='submit'
+          disabled={!dirty && !isValid}
+          className={`${styles.form_submit}`}
+        >
           Submit
         </PrimaryButton>
       </div>

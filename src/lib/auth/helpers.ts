@@ -1,5 +1,5 @@
 'use server';
-import { CreateUser, SignInUser } from '@/components';
+import { CreateUser, FormState, SignInUser } from '@/components';
 import { User, connectToMongo } from '../db';
 import { authSignOut, authSignIn } from './auth.config';
 import bcrypt from 'bcryptjs';
@@ -19,8 +19,8 @@ export async function signOut() {
   return authSignOut();
 }
 
-export async function signUp(formData: CreateUser) {
-  const { username, email, password, passwordAgain, avatar } = formData;
+export async function signUp(_: FormState, formData: FormData): Promise<FormState> {
+  const { username, email, password, passwordAgain, avatar } = Object.fromEntries(formData);
 
   if (password !== passwordAgain) return { error: 'Password must be the same!' };
 
@@ -54,12 +54,14 @@ export async function signUp(formData: CreateUser) {
   }
 }
 
-export async function signIn(formData: SignInUser) {
-  const { username, password } = formData;
+export async function signIn(_: FormState, formData: FormData): Promise<FormState> {
+  const { username, password } = Object.fromEntries(formData);
 
   try {
-    return await authSignIn('credentials', { username, password });
+    await authSignIn('credentials', { username, password });
+    return { success: 'Signed in.' };
   } catch (e) {
     if (e instanceof Error) return { error: e.message };
+    return { error: 'Failed to sign in.' };
   }
 }

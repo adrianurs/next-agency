@@ -1,7 +1,9 @@
 import { FC } from 'react';
 
-export type FormProps<T> = {
-  action: (formData: T) => void;
+export type FormState = { message?: string; error?: string; success?: string };
+
+export type FormProps = {
+  action: (previousState: FormState, formData: FormData) => Promise<FormState>;
 };
 
-export type FormFC<T> = FC<FormProps<T>>;
+export type FormFC = FC<FormProps>;

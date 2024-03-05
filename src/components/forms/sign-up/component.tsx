@@ -1,22 +1,30 @@
 'use client';
 import Link from 'next/link';
 import { PrimaryButton, InputBase, InputPassword } from '@/components';
-import { FormFC } from '../types';
+import { FormFC, FormState } from '../types';
 import { validationSchema, initialValues } from './form';
 import { useFormik } from 'formik';
 import styles from './styled.module.css';
 import { CreateUser } from './types';
+import { useFormState } from 'react-dom';
+import { useEffect } from 'react';
+import { redirect } from 'next/navigation';
 
-export const SignUpForm: FormFC<CreateUser> = ({ action }) => {
-  const { dirty, errors, isValid, touched, values, handleChange, handleBlur, handleSubmit } =
+export const SignUpForm: FormFC = ({ action }) => {
+  const [formState, actionFormState] = useFormState<FormState, FormData>(action, {});
+  const { dirty, errors, isValid, touched, values, handleChange, handleBlur } =
     useFormik<CreateUser>({
       validationSchema,
-      onSubmit: action,
-      initialValues
+      initialValues,
+      onSubmit: () => {}
     });
 
+  useEffect(() => {
+    if (formState.success) redirect('/sign-in');
+  }, [formState.success]);
+
   return (
-    <form className={styles.form_wrapper} onSubmit={handleSubmit}>
+    <form className={styles.form_wrapper} action={actionFormState}>
       <InputBase
         type='email'
         name='email'
@@ -56,12 +64,9 @@ export const SignUpForm: FormFC<CreateUser> = ({ action }) => {
         onBlur={handleBlur}
         error={touched.passwordAgain && errors.passwordAgain}
       />
+      {formState.error && <p className={styles.submission_error}>{formState.error}</p>}
       <div className={`${styles.action_container}`}>
-        <PrimaryButton
-          disabled={!dirty || !isValid}
-          type='submit'
-          className={`${styles.form_submit}`}
-        >
+        <PrimaryButton disabled={!dirty || !isValid} className={`${styles.form_submit}`}>
           Submit
         </PrimaryButton>
       </div>

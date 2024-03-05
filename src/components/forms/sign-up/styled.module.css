@@ -17,3 +17,7 @@
 .link {
 	@apply underline w-max text-center;
 }
+
+.submission_error {
+	@apply col-span-1 md:col-span-2 text-center text-sm text-red-500;
+}
