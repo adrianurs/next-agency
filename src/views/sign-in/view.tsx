@@ -1,10 +1,13 @@
 import { GithubButton, GitlabButton } from '@/components';
 import { auth, signInWithGithub, signInWithGitlab } from '@/lib';
+import { redirect } from 'next/navigation';
 
 export async function SignInView() {
   const session = await auth();
 
-  console.log(session);
+  if (session) {
+    redirect('/');
+  }
 
   return (
     <>

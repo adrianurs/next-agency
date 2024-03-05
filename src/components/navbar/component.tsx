@@ -14,7 +14,7 @@ export const Navbar: FC = () => {
       <div className={styles.nav_wrapper}>
         <Links />
       </div>
-      <Sider />
+      <Sider links={<Links />} />
     </div>
   );
 };

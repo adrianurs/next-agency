@@ -1,12 +1,10 @@
-import { FC } from 'react';
 import links from './links.json';
 import { NavLink } from './nav-link';
 import { SessionControlButton } from '@/components';
-import { signOut } from '@/lib';
+import { UserType, auth, signOut } from '@/lib';
 
-export const Links: FC = () => {
-  const isAdmin = true;
-  const session = true;
+export async function Links() {
+  const session = await auth();
 
   return (
     <>
@@ -15,7 +13,9 @@ export const Links: FC = () => {
       ))}
       {session ? (
         <>
-          {isAdmin && <NavLink item={{ path: '/admin', label: 'Admin' }} />}
+          {(session?.user as UserType)?.isAdmin && (
+            <NavLink item={{ path: '/admin', label: 'Admin' }} />
+          )}
           <form action={signOut}>
             <SessionControlButton>Sign out</SessionControlButton>
           </form>
@@ -25,4 +25,4 @@ export const Links: FC = () => {
       )}
     </>
   );
-};
+}

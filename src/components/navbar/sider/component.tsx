@@ -1,10 +1,9 @@
 'use client';
-import { FC, useState } from 'react';
-import { Links } from '../links';
+import { FC, ReactNode, useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/20/solid';
 import styles from './styled.module.css';
 
-export const Sider: FC = () => {
+export const Sider: FC<{ links: ReactNode }> = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -22,7 +21,7 @@ export const Sider: FC = () => {
           height={30}
           width={30}
         />
-        <Links />
+        {links}
       </div>
     </>
   );

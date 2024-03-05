@@ -1,0 +1,12 @@
+{
+  "github": {
+    "username": "login",
+    "avatar": "avatar_url",
+    "email": "email"
+  },
+  "gitlab": {
+    "username": "username",
+    "avatar": "avatar_url",
+    "email": "commit_email"
+  }
+}
