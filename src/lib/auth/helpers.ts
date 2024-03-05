@@ -62,6 +62,6 @@ export async function signIn(_: FormState, formData: FormData): Promise<FormStat
     return { success: 'Signed in.' };
   } catch (e) {
     if (e instanceof Error) return { error: e.message };
-    return { error: 'Failed to sign in.' };
+    throw e;
   }
 }
