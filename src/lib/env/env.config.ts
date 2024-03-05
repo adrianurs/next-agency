@@ -1,7 +1,6 @@
 const pre_validation_env = {
   mongo_url: process.env.MONGO_URL,
   next_public_api_url: process.env.NEXT_PUBLIC_API_URL,
-  auth_url: process.env.AUTH_URL,
   auth_secret: process.env.AUTH_SECRET,
   github_client_id: process.env.GITHUB_CLIENT_ID,
   github_secret: process.env.GITHUB_SECRET,

@@ -4,6 +4,8 @@ import { auth, signInWithGithub, signInWithGitlab } from '@/lib';
 export async function SignInView() {
   const session = await auth();
 
+  console.log(session);
+
   return (
     <>
       <form action={signInWithGithub}>
