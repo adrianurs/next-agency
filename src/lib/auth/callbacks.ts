@@ -36,5 +36,35 @@ export const callbacks: NextAuthConfig['callbacks'] = {
       console.error(e);
       return false;
     }
+  },
+
+  async jwt({ token, user }) {
+    if (user) {
+      token.id = user.id;
+      token._id = user._id;
+      token.isAdmin = user.isAdmin;
+      token.username = user.username;
+      token.email = user.email;
+      token.avatar = user.avatar;
+    }
+    return token;
+  },
+
+  async session({ session, token }) {
+    if (token) {
+      session.user.id = token.id as string;
+      session.user._id = token._id;
+      session.user.isAdmin = token.isAdmin;
+      session.user.username = token.username;
+      session.user.email = token.email;
+      session.user.avatar = token.avatar;
+    }
+    return session;
+  },
+
+  async authorized({ auth, request }) {
+    console.log({ auth, request });
+    // Should redirect the user
+    return true;
   }
 };

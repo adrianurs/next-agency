@@ -23,7 +23,7 @@
     "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": [
-    "svgr.d.ts",
+    "types/svgr.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
