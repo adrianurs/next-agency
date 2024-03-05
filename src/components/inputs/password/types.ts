@@ -1,8 +1,8 @@
 import { DetailedHTMLProps, FC, InputHTMLAttributes } from 'react';
 
-export interface InputBaseProps
+export interface InputPasswordProps
   extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   error?: string | boolean;
 }
 
-export type InputBaseFC = FC<InputBaseProps>;
+export type InputPasswordFC = FC<InputPasswordProps>;

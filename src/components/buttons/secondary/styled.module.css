@@ -1,9 +1,9 @@
 .secondary_button {
 	background-color: var(--primary-dark);
 	color: var(--secondary);
-	@apply min-w-36 py-2.5 text-sm rounded-md transition-all;
+	@apply min-w-36 py-2.5 text-sm rounded-md transition-all disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.secondary_button:hover {
+.secondary_button:hover:not(:disabled) {
 	background-color: var(--primary-darker);
 }

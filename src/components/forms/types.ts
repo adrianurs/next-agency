@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-export type FormProps = {
-  action: (formData: FormData) => void;
+export type FormProps<T> = {
+  action: (formData: T) => void;
 };
 
-export type FormFC = FC<FormProps>;
+export type FormFC<T> = FC<FormProps<T>>;
