@@ -13,12 +13,12 @@ export const validationSchema = Yup.object({
   password: Yup.string()
     .matches(
       password_regex,
-      'Password must contain 8 chars: minimum a camel case, a camel case and a number.'
+      'Password must contain 8 chars: minimum a lower case, an upper case and a number.'
     )
     .required('Password is required.'),
   passwordAgain: Yup.string()
     .oneOf([Yup.ref('password')], 'Passwords must match')
-    .required('Password must be entered again.')
+    .required('Password must be confirmed.')
 });
 
 export const initialValues: CreateUser = {

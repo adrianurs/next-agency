@@ -65,6 +65,7 @@ export const callbacks: NextAuthConfig['callbacks'] = {
   async authorized({ auth, request }) {
     console.log({ auth, request });
     // Should redirect the user
+
     return true;
   }
 };

@@ -1,0 +1,11 @@
+.container {
+	@apply relative flex py-5 items-center;
+}
+
+.line {
+ @apply flex-grow border-t border-gray-400;
+}
+
+.text {
+ @apply flex-shrink mx-4 text-gray-400;
+}
