@@ -1,0 +1,12 @@
+.wrapper {
+	background-color: var(--secondary-soft);
+	@apply p-5 rounded-md text-gray-400 font-thin hover:border-2 hover:border-slate-200 shadow-md w-[160px];
+}
+
+.label {
+	@apply flex flex-col items-center gap-2 cursor-pointer;
+}
+
+.text {
+	@apply font-medium;
+}

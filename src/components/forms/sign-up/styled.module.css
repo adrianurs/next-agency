@@ -6,6 +6,10 @@
 	@apply w-full col-span-1;
 }
 
+.avatar_row {
+	@apply w-full col-span-1 md:col-span-2 gap-3 flex justify-center items-start;
+}
+
 .action_container {
 	@apply col-span-1 md:col-span-2 flex justify-center;
 }

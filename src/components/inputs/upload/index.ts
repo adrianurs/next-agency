@@ -1,0 +1,1 @@
+export { InputUpload } from './component';

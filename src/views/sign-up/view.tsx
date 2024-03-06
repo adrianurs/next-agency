@@ -1,6 +1,5 @@
 import { Divider, GithubButton, GitlabButton, SignUpForm } from '@/components';
 import { auth, signInWithGithub, signInWithGitlab, signUp } from '@/lib';
-import { redirect } from 'next/navigation';
 import styles from './styled.module.css';
 
 export async function SignUpView() {

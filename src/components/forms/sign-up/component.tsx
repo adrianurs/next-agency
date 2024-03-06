@@ -1,18 +1,18 @@
 'use client';
+import { useEffect } from 'react';
+import { useFormState } from 'react-dom';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { PrimaryButton, InputBase, InputPassword } from '@/components';
-import { FormFC, FormState } from '../types';
+import { PrimaryButton, InputBase, InputPassword, InputUpload, Avatar } from '@/components';
 import { validationSchema, initialValues } from './form';
+import { FormFC, FormState } from '../types';
+import { CreateUser } from './types';
 import { useFormik } from 'formik';
 import styles from './styled.module.css';
-import { CreateUser } from './types';
-import { useFormState } from 'react-dom';
-import { useEffect } from 'react';
-import { redirect } from 'next/navigation';
 
 export const SignUpForm: FormFC = ({ action }) => {
   const [formState, actionFormState] = useFormState<FormState, FormData>(action, {});
-  const { dirty, errors, isValid, touched, values, handleChange, handleBlur } =
+  const { dirty, errors, isValid, touched, values, handleChange, handleBlur, setFieldValue } =
     useFormik<CreateUser>({
       validationSchema,
       initialValues,
@@ -25,6 +25,13 @@ export const SignUpForm: FormFC = ({ action }) => {
 
   return (
     <form className={styles.form_wrapper} action={actionFormState}>
+      <div className={styles.avatar_row}>
+        <Avatar image={values.avatar} size={100} />
+        <InputUpload
+          label='Upload avatar'
+          onChange={(file: File) => setFieldValue('avatar', URL.createObjectURL(file))}
+        />
+      </div>
       <InputBase
         type='email'
         name='email'

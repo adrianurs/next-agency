@@ -1,4 +1,5 @@
 export * from './animations';
+export * from './avatar';
 export * from './buttons';
 export * from './cards';
 export * from './containers';

@@ -3,7 +3,7 @@
 }
 
 .avatar {
-	@apply col-span-1 sm:col-span-2  rounded-[50%] object-contain;
+	@apply col-span-1 sm:col-span-2;
 }
 
 .other_details {

@@ -1,4 +1,4 @@
-import { GithubLogo, GitlabLogo } from '@/assets/logos';
+import { GithubLogo, GitlabLogo } from '@/assets';
 import { IconButton } from '../component';
 import { GithubButtonFC } from './types';
 import styles from './styled.module.css';
