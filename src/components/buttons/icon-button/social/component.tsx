@@ -1,9 +1,9 @@
 import { GithubLogo, GitlabLogo } from '@/assets';
 import { IconButton } from '../component';
-import { GithubButtonFC } from './types';
+import { SocialButtonFC } from './types';
 import styles from './styled.module.css';
 
-export const GithubButton: GithubButtonFC = (props) => {
+export const GithubButton: SocialButtonFC = (props) => {
   return (
     <IconButton
       icon={<GithubLogo height={30} />}
@@ -13,7 +13,7 @@ export const GithubButton: GithubButtonFC = (props) => {
   );
 };
 
-export const GitlabButton: GithubButtonFC = (props) => {
+export const GitlabButton: SocialButtonFC = (props) => {
   return (
     <IconButton
       icon={<GitlabLogo height={30} />}

@@ -35,8 +35,8 @@ export const SignInForm: FormFC = ({ action }) => {
         onBlur={handleBlur}
         error={touched.password && errors.password}
       />
-      {formState.error && <p className={styles.submission_error}>{formState.error}</p>}
       <div className={`${styles.action_container}`}>
+        {formState.error && <p className={styles.submission_error}>{formState.error}</p>}
         <PrimaryButton
           type='submit'
           disabled={!dirty && !isValid}

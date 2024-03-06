@@ -7,7 +7,7 @@
 }
 
 .action_container {
-	@apply col-span-1 flex justify-center;
+	@apply col-span-1  flex flex-col items-center;
 }
 
 .form_submit {

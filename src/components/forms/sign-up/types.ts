@@ -3,5 +3,5 @@ export type CreateUser = {
   email: string;
   password: string;
   passwordAgain: string;
-  avatar: string;
+  avatar?: File;
 };

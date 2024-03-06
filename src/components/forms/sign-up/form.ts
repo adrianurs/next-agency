@@ -1,4 +1,4 @@
-import { email_regex, password_regex } from '@/lib';
+import { blobToBase64, email_regex, password_regex } from '@/lib';
 import * as Yup from 'yup';
 import { CreateUser } from './types';
 import { FormState } from '../types';
@@ -23,39 +23,26 @@ export const validationSchema = Yup.object({
 });
 
 export const initialValues: CreateUser = {
-  avatar: '',
   email: '',
   password: '',
   passwordAgain: '',
   username: ''
 };
 
-export async function parseAvatar(
+export async function cookData(
   _: FormState,
   formData: FormData,
   action: (_: FormState, formData: FormData, avatar?: string) => Promise<FormState>
 ): Promise<FormState> {
   try {
-    const avatar = Object.fromEntries(formData).avatar;
+    const avatar = Object.fromEntries(formData).avatar as File;
     let base64: string | undefined;
 
     if (avatar) {
-      const blob = await fetch(avatar as string)
-        .then((r) => r.blob())
-        .catch((e) => {
-          throw e;
-        });
-      base64 = await new Promise((res, rej) => {
-        var reader = new FileReader();
-        reader.readAsDataURL(blob);
-        reader.onloadend = () => {
-          res(reader.result as string);
-        };
-        reader.onerror = () => {
-          rej('Failed reading file!');
-        };
-      });
+      base64 = await blobToBase64(avatar);
     }
+
+    formData.set('avatar', '');
 
     return await action(_, formData, base64);
   } catch (e) {

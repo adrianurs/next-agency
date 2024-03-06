@@ -11,7 +11,7 @@ export async function SignInView() {
       <h1 className={styles.title}>Sign In</h1>
       <SignInForm action={signIn} />
       <div className={styles.bottom_section}>
-        <Divider text='OR' />
+        <Divider text='OR' className={styles.divider_span} />
         <form action={signInWithGithub}>
           <GithubButton>Sign in with Github</GithubButton>
         </form>

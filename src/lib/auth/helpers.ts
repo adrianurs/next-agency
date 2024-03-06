@@ -3,6 +3,7 @@ import { FormState } from '@/components';
 import { User, connectToMongo } from '../db';
 import { authSignOut, authSignIn } from './auth.config';
 import bcrypt from 'bcryptjs';
+import { uploadToCloud } from '../cloud';
 
 export async function signInWithGithub() {
   'use server';
@@ -43,7 +44,8 @@ export async function signUp(
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password as string, salt);
 
-    const avatarStoredUrl = '';
+    let avatarStoredUrl: string | undefined;
+    if (avatar) avatarStoredUrl = await uploadToCloud(avatar);
 
     const newUser = new User({
       username,

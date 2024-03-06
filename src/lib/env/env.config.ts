@@ -5,7 +5,11 @@ const pre_validation_env = {
   github_client_id: process.env.GITHUB_CLIENT_ID,
   github_secret: process.env.GITHUB_SECRET,
   gitlab_client_id: process.env.GITLAB_CLIENT_ID,
-  gitlab_secret: process.env.GITLAB_SECRET
+  gitlab_secret: process.env.GITLAB_SECRET,
+  gcs_client_mail: process.env.GCS_CLIENT_EMAIL,
+  gcs_project_id: process.env.GCS_PROJECT_ID,
+  gcs_private_key: process.env.GCS_PRIVATE_KEY,
+  gcs_bucket: process.env.GCS_BUCKET
 };
 
 // checking if the required values are in the .env file
