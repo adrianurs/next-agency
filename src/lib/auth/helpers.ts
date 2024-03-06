@@ -19,8 +19,12 @@ export async function signOut() {
   return authSignOut();
 }
 
-export async function signUp(_: FormState, formData: FormData): Promise<FormState> {
-  const { username, email, password, passwordAgain, avatar } = Object.fromEntries(formData);
+export async function signUp(
+  _: FormState,
+  formData: FormData,
+  avatar?: string
+): Promise<FormState> {
+  const { username, email, password, passwordAgain } = Object.fromEntries(formData);
 
   if (password !== passwordAgain) return { error: 'Password must be the same!' };
 
@@ -39,18 +43,20 @@ export async function signUp(_: FormState, formData: FormData): Promise<FormStat
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password as string, salt);
 
+    const avatarStoredUrl = '';
+
     const newUser = new User({
       username,
       email,
       password: hashed,
-      avatar
+      avatar: avatarStoredUrl
     });
 
     await newUser.save();
 
     return { success: 'User signed up successfully!' };
   } catch (e) {
-    return { error: 'Failed to sign in!' };
+    return { error: 'Failed to sign up!' };
   }
 }
 

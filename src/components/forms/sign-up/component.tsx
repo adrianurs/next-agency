@@ -4,14 +4,17 @@ import { useFormState } from 'react-dom';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { PrimaryButton, InputBase, InputPassword, InputUpload, Avatar } from '@/components';
-import { validationSchema, initialValues } from './form';
+import { validationSchema, initialValues, parseAvatar } from './form';
 import { FormFC, FormState } from '../types';
 import { CreateUser } from './types';
 import { useFormik } from 'formik';
 import styles from './styled.module.css';
 
 export const SignUpForm: FormFC = ({ action }) => {
-  const [formState, actionFormState] = useFormState<FormState, FormData>(action, {});
+  const [formState, actionFormState] = useFormState<FormState, FormData>(
+    (_, formData) => parseAvatar(_, formData, action),
+    {}
+  );
   const { dirty, errors, isValid, touched, values, handleChange, handleBlur, setFieldValue } =
     useFormik<CreateUser>({
       validationSchema,
@@ -28,6 +31,7 @@ export const SignUpForm: FormFC = ({ action }) => {
       <div className={styles.avatar_row}>
         <Avatar image={values.avatar} size={100} />
         <InputUpload
+          name='avatar'
           label='Upload avatar'
           onChange={(file: File) => setFieldValue('avatar', URL.createObjectURL(file))}
         />

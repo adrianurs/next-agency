@@ -3,7 +3,7 @@ import { InputUploadFC } from './types';
 import styles from './style.module.css';
 import { v4 as unique } from 'uuid';
 
-export const InputUpload: InputUploadFC = ({ label, accept, onChange }) => {
+export const InputUpload: InputUploadFC = ({ label, accept, onChange, name }) => {
   const id = unique();
 
   return (
@@ -13,6 +13,7 @@ export const InputUpload: InputUploadFC = ({ label, accept, onChange }) => {
         <span className={styles.text}>{label || 'Upload file'}</span>
       </label>
       <input
+        name={name}
         suppressHydrationWarning
         id={`input-upload-${id}`}
         type='file'
