@@ -1,5 +1,5 @@
 import { NextAuthConfig } from 'next-auth';
-import { User, UserType, connectToMongo } from '../db';
+import { User, connectToMongo } from '../db';
 import providers_map from './providers_map.json';
 
 export const callbacks: NextAuthConfig['callbacks'] = {
@@ -7,7 +7,7 @@ export const callbacks: NextAuthConfig['callbacks'] = {
     try {
       if (account?.provider && Object.keys(providers_map).includes(account.provider)) {
         await connectToMongo();
-        const dbUser = await User.findOne<UserType>({ email: user.email });
+        const dbUser = await User.findOne({ email: user.email });
         if (!dbUser) {
           type KeyOfProfile = keyof typeof profile;
           type KeyOfProviders = keyof typeof providers_map;
@@ -60,12 +60,5 @@ export const callbacks: NextAuthConfig['callbacks'] = {
       session.user.avatar = token.avatar;
     }
     return session;
-  },
-
-  async authorized({ auth, request }) {
-    console.log({ auth, request });
-    // Should redirect the user
-
-    return true;
   }
 };

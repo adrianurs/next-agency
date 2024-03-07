@@ -6,10 +6,11 @@ interface Updated extends UserType {
 }
 
 declare module 'next-auth' {
+  interface User extends Updated {}
+
   interface Session {
     user?: DefaultUser & Updated;
   }
-  interface User extends Updated {}
 }
 
 declare module 'next-auth/jwt' {

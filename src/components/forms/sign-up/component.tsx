@@ -31,6 +31,7 @@ export const SignUpForm: FormFC = ({ action }) => {
       <div className={styles.avatar_row}>
         <Avatar image={values.avatar && URL.createObjectURL(values.avatar)} size={100} />
         <InputUpload
+          accept='image/*'
           name='avatar'
           label='Upload avatar'
           onChange={(file: File) => setFieldValue('avatar', file)}

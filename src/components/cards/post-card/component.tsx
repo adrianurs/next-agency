@@ -16,6 +16,7 @@ export const PostCard: PostCardFC = ({ item: { _id, createdAt, description, imag
             fill
             sizes='(max-height: 300px)'
             fetchPriority='auto'
+            priority
           />
         </div>
         <div className={styles.date_col}>
