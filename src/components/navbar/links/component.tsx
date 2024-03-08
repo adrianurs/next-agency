@@ -14,7 +14,7 @@ export async function Links() {
       {session ? (
         <>
           {(session?.user as UserType)?.isAdmin && (
-            <NavLink item={{ path: '/admin', label: 'Admin' }} />
+            <NavLink item={{ path: '/admin/users', label: 'Admin' }} />
           )}
           <form action={signOut}>
             <SessionControlButton>Sign out</SessionControlButton>

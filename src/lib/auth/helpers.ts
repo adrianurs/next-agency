@@ -4,6 +4,7 @@ import { User, connectToMongo } from '../db';
 import { authSignOut, authSignIn } from './auth.config';
 import bcrypt from 'bcryptjs';
 import { uploadToCloud } from '../cloud';
+import { isRedirectError } from 'next/dist/client/components/redirect';
 
 export async function signInWithGithub() {
   'use server';
@@ -69,7 +70,9 @@ export async function signIn(_: FormState, formData: FormData): Promise<FormStat
     await authSignIn('credentials', { username, password });
     return { success: 'Signed in.' };
   } catch (e) {
-    if (e instanceof Error) return { error: e.message };
+    if (!isRedirectError(e) && e instanceof Error) {
+      return { error: 'Failed to sign in, are credentials correct?' };
+    }
     throw e;
   }
 }

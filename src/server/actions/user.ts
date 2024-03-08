@@ -18,3 +18,15 @@ export async function getUser(
     throw new Error('@/server/actions/user.ts -> getUser: failed to fetch user.');
   }
 }
+
+export async function getUsers(_: NextRequest): Promise<NextResponse<UserType[] | ErrorType>> {
+  noStore();
+  try {
+    await connectToMongo();
+    const users = await User.find<UserType>();
+    if (users) return NextResponse.json(users);
+    else return errorResponse('No users found.', 400);
+  } catch {
+    throw new Error('@/server/actions/user.ts -> getUser: failed to fetch user.');
+  }
+}

@@ -39,25 +39,12 @@ export const callbacks: NextAuthConfig['callbacks'] = {
   },
 
   async jwt({ token, user }) {
-    if (user) {
-      token.id = user.id;
-      token._id = user._id;
-      token.isAdmin = user.isAdmin;
-      token.username = user.username;
-      token.email = user.email;
-      token.avatar = user.avatar;
-    }
-    return token;
+    return { ...token, ...(user && user) };
   },
 
   async session({ session, token }) {
     if (token) {
-      session.user.id = token.id as string;
-      session.user._id = token._id;
-      session.user.isAdmin = token.isAdmin;
-      session.user.username = token.username;
-      session.user.email = token.email;
-      session.user.avatar = token.avatar;
+      session.user = { ...(token && token) };
     }
     return session;
   }

@@ -36,7 +36,7 @@ export const SignInForm: FormFC = ({ action }) => {
         error={touched.password && errors.password}
       />
       <div className={`${styles.action_container}`}>
-        {formState.error && <p className={styles.submission_error}>{formState.error}</p>}
+        {formState?.error && <p className={styles.submission_error}>{formState?.error}</p>}
         <PrimaryButton
           type='submit'
           disabled={!dirty && !isValid}

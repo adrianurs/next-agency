@@ -77,7 +77,7 @@ export const SignUpForm: FormFC = ({ action }) => {
         error={touched.passwordAgain && errors.passwordAgain}
       />
       <div className={`${styles.action_container}`}>
-        {formState.error && <p className={styles.submission_error}>{formState.error}</p>}
+        {formState?.error && <p className={styles.submission_error}>{formState?.error}</p>}
         <PrimaryButton disabled={!dirty || !isValid} className={`${styles.form_submit}`}>
           Submit
         </PrimaryButton>
