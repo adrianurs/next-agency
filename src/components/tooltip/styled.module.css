@@ -1,0 +1,7 @@
+.container {
+  @apply relative inline-block;
+}
+
+.tooltip {
+  @apply invisible opacity-0 transition bg-black bg-opacity-30 text-white py-1 px-3 rounded absolute top-full mt-2 m-auto left-1/2 -translate-x-1/2 whitespace-nowrap;
+}

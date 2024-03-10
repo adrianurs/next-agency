@@ -3,7 +3,7 @@ import { PostType, request } from '@/lib';
 import styles from './styled.module.css';
 
 export async function BlogView() {
-  const posts = (await request.get<PostType[]>('/posts')).data;
+  const posts = await request.get<PostType[]>('/posts');
 
   return (
     <ViewContainer>

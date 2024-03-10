@@ -7,5 +7,7 @@ export * from './divider';
 export * from './footer';
 export * from './forms';
 export * from './inputs';
+export * from './loader-wrapper';
 export * from './logo';
 export * from './navbar';
+export * from './tooltip';

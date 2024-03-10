@@ -4,7 +4,7 @@ import { Avatar } from '@/components';
 import styles from './styled.module.css';
 
 export async function UserSection({ publishedOn, authorId }: UserSectionProps) {
-  const author = (await request.get<UserType>(`/users/${authorId}`)).data;
+  const author = await request.get<UserType>(`/users/${authorId}`);
 
   return (
     <div className={styles.author_section}>

@@ -1,5 +1,5 @@
 export * from './auth';
-export * from './axios';
+export * from './request';
 export * from './cloud';
 export * from './db';
 export * from './env';

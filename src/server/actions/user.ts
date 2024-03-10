@@ -19,6 +19,20 @@ export async function getUser(
   }
 }
 
+export async function deleteUser(
+  _: NextRequest,
+  { params }: { params: { user: string } }
+): Promise<NextResponse<true>> {
+  noStore();
+  try {
+    await connectToMongo();
+    await User.findByIdAndDelete<UserType>(params.user);
+    return NextResponse.json(true);
+  } catch {
+    throw new Error('@/server/actions/user.ts -> deleteUser: failed to delete user.');
+  }
+}
+
 export async function getUsers(_: NextRequest): Promise<NextResponse<UserType[] | ErrorType>> {
   noStore();
   try {
