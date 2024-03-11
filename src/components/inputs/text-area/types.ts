@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, TextareaHTMLAttributes } from 'react';
 
-export type TextAreaProps = DetailedHTMLProps<
-  TextareaHTMLAttributes<HTMLTextAreaElement>,
-  HTMLTextAreaElement
->;
+export interface TextAreaProps
+  extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
+  error?: string | boolean;
+}
 export type TextAreaFC = FC<TextAreaProps>;

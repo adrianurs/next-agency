@@ -1,4 +1,4 @@
-import { email_regex, password_regex } from '@/lib';
+import { password_regex } from '@/lib';
 import * as Yup from 'yup';
 import { SignInUser } from './types';
 

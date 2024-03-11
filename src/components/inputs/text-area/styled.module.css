@@ -1,4 +1,12 @@
 .text_area {
   background-color: var(--secondary-soft);
-	@apply p-5 rounded-md;
+  @apply p-5 rounded-md;
+}
+
+.text_area_error {
+  @apply border-2 placeholder-red-500 border-red-500;
+}
+
+.error_span {
+  @apply text-left text-sm text-red-500;
 }

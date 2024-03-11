@@ -3,6 +3,7 @@ export * from './avatar';
 export * from './buttons';
 export * from './cards';
 export * from './containers';
+export * from './dialog';
 export * from './divider';
 export * from './footer';
 export * from './forms';

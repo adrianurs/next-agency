@@ -1,0 +1,19 @@
+.form_wrapper {
+  @apply grid grid-cols-1 gap-2 w-full self-center;
+}
+
+.form_input {
+  @apply w-full col-span-1;
+}
+
+.image_row {
+  @apply w-full gap-3 flex justify-center items-start;
+}
+
+.form_submit {
+  @apply w-full mt-3;
+}
+
+.submission_error {
+  @apply col-span-1 text-center text-sm text-red-500;
+}
