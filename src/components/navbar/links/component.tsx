@@ -1,4 +1,5 @@
 import links from './links.json';
+import admin_links from './admin-links.json';
 import { NavLink } from './nav-link';
 import { SessionControlButton } from '@/components';
 import { UserType, auth, signOut } from '@/lib';
@@ -14,7 +15,7 @@ export async function Links() {
       {session ? (
         <>
           {(session?.user as UserType)?.isAdmin && (
-            <NavLink item={{ path: '/admin/users', label: 'Admin' }} />
+            <NavLink dropdownButtonLabel='Admin' isDropdown items={admin_links} />
           )}
           <form action={signOut}>
             <SessionControlButton>Sign out</SessionControlButton>

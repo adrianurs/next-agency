@@ -1,4 +1,4 @@
-import { UsersView } from '@/views/users/view';
+import { UsersAdminView } from '@/views';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,4 +6,4 @@ export const metadata: Metadata = {
   description: 'Users admin page of creative thoughts agency'
 };
 
-export default UsersView;
+export default UsersAdminView;

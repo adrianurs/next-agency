@@ -1,0 +1,24 @@
+.dropdown_button {
+  @apply transition-all py-2.5 px-5 rounded-3xl font-medium text-center;
+}
+
+.dropdown_container {
+  @apply absolute ease-in-out duration-100 transition-all top-11 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700;
+}
+
+.list_container {
+  @apply py-2 text-sm text-gray-700 dark:text-gray-200;
+}
+
+.list_item {
+  @apply block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white;
+}
+
+.active_list_item {
+  @apply bg-gray-100 dark:bg-gray-600 dark:text-white;
+}
+
+.active {
+  background-color: var(--primary-darker);
+  color: var(--secondary);
+}

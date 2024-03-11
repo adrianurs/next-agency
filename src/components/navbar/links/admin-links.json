@@ -1,0 +1,10 @@
+[
+  {
+    "path": "/admin/users",
+    "label": "Users"
+  },
+  {
+    "path": "/admin/posts",
+    "label": "Posts"
+  }
+]

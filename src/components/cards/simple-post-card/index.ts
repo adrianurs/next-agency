@@ -1,0 +1,1 @@
+export { SimplePostCard } from './component';

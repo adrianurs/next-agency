@@ -34,6 +34,7 @@ export async function deleteUser(
 }
 
 export async function getUsers(_: NextRequest): Promise<NextResponse<UserType[] | ErrorType>> {
+  console.log('fetching users');
   noStore();
   try {
     await connectToMongo();
