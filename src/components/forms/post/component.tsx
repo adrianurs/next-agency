@@ -1,7 +1,5 @@
 'use client';
-import { useEffect } from 'react';
 import { useFormState } from 'react-dom';
-import { redirect } from 'next/navigation';
 import { PrimaryButton, InputBase, InputUpload, TextArea } from '@/components';
 import { validationSchema, initialValues, cookData } from './form';
 import { FormState } from '../types';
@@ -20,10 +18,6 @@ export const PostForm: PostFormFC = ({ action, initial, type }) => {
       initialValues: type === 'update' && initial ? initial : initialValues,
       onSubmit: () => {}
     });
-
-  useEffect(() => {
-    if (formState.success) redirect('/sign-in');
-  }, [formState.success]);
 
   return (
     <form className={styles.form_wrapper} action={actionFormState}>

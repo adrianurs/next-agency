@@ -1,14 +1,27 @@
 'use client';
-
 import { Dialog, FormState, PostForm, PrimaryButton } from '@/components';
+import { request } from '@/lib';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export const CreatePost = () => {
+export const CreatePost = ({ userId }: { userId: string }) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   const createPost = async (_: FormState, data: FormData) => {
-    console.log(Object.fromEntries(data));
-    return { success: 'post added' };
+    try {
+      const formData = Object.fromEntries(data);
+
+      await request.post<FormState>('/posts', {
+        body: { ...formData, author: userId }
+      });
+
+      router.refresh();
+      setOpen(false);
+      return { success: 'Post was created' };
+    } catch (e) {
+      return { error: 'Failed to create post.' };
+    }
   };
 
   return (

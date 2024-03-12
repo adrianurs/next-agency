@@ -1,4 +1,5 @@
 import { _env } from '../env';
+import { RequestOptions } from './types';
 
 const baseURL = _env.next_public_api_url;
 
@@ -11,12 +12,12 @@ const request = {
     });
     return (await response.json()) as T;
   },
-  async post<T = unknown>(path: string, options?: Omit<RequestInit, 'method'>) {
+  async post<T = unknown>(path: string, options?: RequestOptions) {
     const body = options?.body ? JSON.stringify(options.body) : undefined;
     const response = await fetch(baseURL + path, { method: 'POST', ...options, body });
     return (await response.json()) as T;
   },
-  async patch<T = unknown>(path: string, options?: Omit<RequestInit, 'method'>) {
+  async patch<T = unknown>(path: string, options?: RequestOptions) {
     const body = options?.body ? JSON.stringify(options.body) : undefined;
     const response = await fetch(baseURL + path, { method: 'PATCH', ...options, body });
     return (await response.json()) as T;

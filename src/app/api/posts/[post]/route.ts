@@ -1,3 +1,4 @@
-import { getPost } from '@/server';
+import { deletePost, getPost } from '@/server';
 
 export const GET = getPost;
+export const DELETE = deletePost;

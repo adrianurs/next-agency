@@ -1,0 +1,7 @@
+.cards_container {
+  @apply flex flex-wrap gap-4;
+}
+
+.post_button_container {
+  @apply w-full flex justify-end;
+}
