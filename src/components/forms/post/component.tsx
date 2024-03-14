@@ -22,6 +22,10 @@ export const PostForm: PostFormFC = ({ action, initial, type }) => {
   return (
     <form className={styles.form_wrapper} action={actionFormState}>
       <div className={styles.image_row}>
+        <p className={styles.image_title}>
+          {values.image &&
+            (typeof values.image === 'string' ? 'base64 image loaded.' : values.image.name)}
+        </p>
         <InputUpload
           accept='image/*'
           name='image'
