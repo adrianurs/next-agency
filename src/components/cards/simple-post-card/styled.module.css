@@ -1,3 +1,7 @@
 .container {
   @apply h-[200px] w-[200px] flex flex-col items-center border border-gray-500 rounded-md gap-4 p-4;
 }
+
+.actions_container {
+  @apply flex gap-3;
+}

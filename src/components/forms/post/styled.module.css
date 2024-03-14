@@ -11,7 +11,7 @@
 }
 
 .image_title {
-  @apply py-2 underline uppercase;
+  @apply py-2 underline;
 }
 
 .form_submit {

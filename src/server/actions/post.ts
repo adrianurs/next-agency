@@ -63,6 +63,38 @@ export async function createPost(req: NextRequest): Promise<NextResponse<PostTyp
   }
 }
 
+export async function updatePost(
+  req: NextRequest,
+  { params }: { params: { post: string } }
+): Promise<NextResponse<PostType | ErrorType>> {
+  try {
+    await connectToMongo();
+
+    const body = await req.json();
+    const { title, description, image, author } = body as PostType;
+
+    if (!title) return errorResponse('Post title is missing.', 400);
+    if (!description) return errorResponse('Post description is missing.', 400);
+
+    let imageUrl: string | undefined;
+    if (image) {
+      imageUrl = await uploadToCloud(image);
+    }
+
+    const post = await Post.findByIdAndUpdate(params.post, {
+      title,
+      description,
+      image: imageUrl ?? '',
+      author
+    });
+
+    if (post) return NextResponse.json(post);
+    else return errorResponse('Post not found', 400);
+  } catch (e) {
+    throw new Error('@/server/actions/post.ts -> updatePost: failed to update post.');
+  }
+}
+
 export async function deletePost(
   _: NextRequest,
   { params }: { params: { post: string } }

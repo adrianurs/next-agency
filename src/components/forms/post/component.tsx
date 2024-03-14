@@ -1,15 +1,17 @@
 'use client';
 import { useFormState } from 'react-dom';
-import { PrimaryButton, InputBase, InputUpload, TextArea } from '@/components';
-import { validationSchema, initialValues, cookData } from './form';
+import { PrimaryButton, InputBase, InputUpload, TextArea, LoaderWrapper } from '@/components';
+import { validationSchema, initialValues, cookData, cookDataOnUpdate } from './form';
 import { FormState } from '../types';
 import { PostFormFC } from './types';
 import { useFormik } from 'formik';
 import styles from './styled.module.css';
+import { PostType } from '@/lib';
 
 export const PostForm: PostFormFC = ({ action, initial, type }) => {
   const [formState, actionFormState] = useFormState<FormState, FormData>(
-    (_, formData) => cookData(_, formData, action),
+    (_, formData) =>
+      (type === 'update' ? cookDataOnUpdate : cookData)(_, formData, action, values as PostType),
     {}
   );
   const { dirty, errors, isValid, touched, values, handleChange, handleBlur, setFieldValue } =
@@ -22,9 +24,15 @@ export const PostForm: PostFormFC = ({ action, initial, type }) => {
   return (
     <form className={styles.form_wrapper} action={actionFormState}>
       <div className={styles.image_row}>
-        <p className={styles.image_title}>
-          {values.image &&
-            (typeof values.image === 'string' ? 'base64 image loaded.' : values.image.name)}
+        <p
+          className={styles.image_title}
+          onClick={
+            values.image && typeof values.image === 'string'
+              ? () => window.open(values.image as string, '_blank')
+              : undefined
+          }
+        >
+          {values.image && (typeof values.image === 'string' ? values.image : values.image.name)}
         </p>
         <InputUpload
           accept='image/*'
@@ -56,7 +64,7 @@ export const PostForm: PostFormFC = ({ action, initial, type }) => {
       <div className={`${styles.action_container}`}>
         {formState?.error && <p className={styles.submission_error}>{formState?.error}</p>}
         <PrimaryButton disabled={!dirty || !isValid} className={`${styles.form_submit}`}>
-          Create Post
+          {type === 'update' ? 'Update post' : 'Create post'}
         </PrimaryButton>
       </div>
     </form>

@@ -5,6 +5,7 @@ import { TrashButton, LoaderWrapper } from '@/components';
 import { UserType, formatDate, request } from '@/lib';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { EditPost } from './edit-post';
 
 export const SimplePostCard: SimplePostCardFC = ({ post }) => {
   const [isDeleting, setIsDeleting] = useState(false);
@@ -34,10 +35,11 @@ export const SimplePostCard: SimplePostCardFC = ({ post }) => {
       <h5>{post.title}</h5>
       <p>{postAuthor?.username}</p>
       <p suppressHydrationWarning>{formatDate(post.createdAt)}</p>
-      <div>
+      <div className={styles.actions_container}>
         <LoaderWrapper loaderSize={5} isLoading={isDeleting}>
           <TrashButton onClick={deletePost} />
         </LoaderWrapper>
+        <EditPost post={post} />
       </div>
     </div>
   );
