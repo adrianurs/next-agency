@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToMongo, UserType, User } from '@/lib';
 import { unstable_noStore as noStore } from 'next/cache';
-import { ErrorType } from './types';
-import { errorResponse } from './utils';
+import { ErrorType } from '../types';
+import { errorResponse } from '../utils';
 
 export async function getUser(
   _: NextRequest,

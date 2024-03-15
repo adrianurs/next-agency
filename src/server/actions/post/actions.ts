@@ -1,8 +1,8 @@
 import { unstable_noStore as noStore } from 'next/cache';
 import { connectToMongo, Post, PostType, uploadToCloud } from '@/lib';
 import { NextRequest, NextResponse } from 'next/server';
-import { errorResponse } from './utils';
-import { ErrorType } from './types';
+import { errorResponse } from '../utils';
+import { ErrorType } from '../types';
 import { isValidObjectId } from 'mongoose';
 
 export async function getPosts(): Promise<NextResponse<PostType[]>> {
