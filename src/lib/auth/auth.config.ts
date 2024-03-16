@@ -12,6 +12,7 @@ export const {
   signIn: authSignIn,
   signOut: authSignOut
 } = NextAuth({
+  trustHost: true,
   providers: [
     Github({ clientId: _env.github_client_id, clientSecret: _env.github_secret }),
     Gitlab({ clientId: _env.gitlab_client_id, clientSecret: _env.gitlab_secret }),
