@@ -9,8 +9,7 @@ const pre_validation_env = {
   gcs_client_mail: process.env.GCS_CLIENT_EMAIL,
   gcs_project_id: process.env.GCS_PROJECT_ID,
   gcs_private_key: process.env.GCS_PRIVATE_KEY,
-  gcs_bucket: process.env.GCS_BUCKET,
-  allow_origin: process.env.ALLOW_ORIGIN
+  gcs_bucket: process.env.GCS_BUCKET
 };
 
 // checking if the required values are in the .env file
