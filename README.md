@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal library manager
+
+Creative agency website
+
+## Description
+
+The project is initialized with CNA (https://nextjs.org/docs/pages/api-reference/create-next-app) on typescript and tailwind template.
+
+- It uses Mongo DB as database and Google Cloud storage for image storage.
+- At the moment the auth providers available are Github and Gitlab.
 
 ## Getting Started
 
-First, run the development server:
+### Dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Not mandatory but is reccomended the use of yarn >= 1.22 and node >= 20.10
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repo - `clone https://github.com/adrianurs/next-agency.git`
+2. Install client packages - `npm install` or `yarn`
+3. Install mock-server packages - `cd mock-server && npm install` or `cd mock-server && yarn`
+4. Include the next .env file in the project root changing the keys with your own
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```sh
+   MONGO_URL=FILL_ME
+   NEXT_PUBLIC_API_URL=FILL_ME
+   AUTH_SECRET=FILL_ME
 
-## Learn More
+    # Auth providers
+   GITHUB_CLIENT_ID=FILL_ME
+   GITHUB_SECRET=FILL_ME
+   GITLAB_CLIENT_ID=FILL_ME
+   GITLAB_SECRET=FILL_ME
 
-To learn more about Next.js, take a look at the following resources:
+    # Google cloud storage
+   GCS_CLIENT_EMAIL=FILL_ME
+   GCS_PROJECT_ID=FILL_ME
+   GCS_PRIVATE_KEY=FILL_ME
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Executing program
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Start the development server with - `npm run dev` or `yarn dev`
 
-## Deploy on Vercel
+## Authors
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[@adrianurs](https://linkedin.com/in/adrianurs)
