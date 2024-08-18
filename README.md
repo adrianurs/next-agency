@@ -11,7 +11,7 @@ The project is initialized with CNA (https://nextjs.org/docs/pages/api-reference
 
 ### Dependencies
 
-- Not mandatory but is reccomended the use of yarn >= 1.22 and node >= 20.10
+- Not mandatory but is recommended the use of yarn >= 1.22 and node >= 20.10
 
 ### Installing
 
