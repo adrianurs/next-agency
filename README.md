@@ -1,6 +1,4 @@
-# Personal library manager
-
-Creative agency website
+# Creative agency website
 
 ## Description
 
